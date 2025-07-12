@@ -1,6 +1,6 @@
 // src/assets/input.jsx
-import './input.css';
 import React, { useState, useEffect } from 'react';
+import './input.css';
 import Todo from './todo.jsx';
 import { db } from '../firebase.js';
 import {
@@ -14,55 +14,49 @@ import {
   doc,
   serverTimestamp
 } from 'firebase/firestore';
-import { auth } from '../firebase.js';
-import { onAuthStateChanged } from 'firebase/auth';
 
 function Input({ user }) {
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
+  // whenever user changes (login/logout), clear or subscribe
   useEffect(() => {
-    // **Wipe out any old tasks immediately on any auth change**
-    setTasks([]);
+    setTasks([]);  // always clear first
 
     if (!user) {
-      // signed out → stay empty (in‑memory list cleared)
-      return;
+      return;      // stay empty if signed out
     }
 
-    // signed in → subscribe to Firestore
     const q = query(
       collection(db, 'tasks'),
       where('uid', '==', user.uid),
       orderBy('timestamp', 'asc')
     );
-
-    const unsubscribe = onSnapshot(q, snapshot => {
-      setTasks(snapshot.docs.map(d => ({ id: d.id, text: d.data().text })));
+    const unsub = onSnapshot(q, snap => {
+      setTasks(snap.docs.map(d => ({ id: d.id, text: d.data().text })));
     });
-
-    return () => unsubscribe();
+    return () => unsub();
   }, [user]);
 
+  // add a task
   async function handleAdd() {
     const text = inputValue.trim();
     if (!text) return;
 
-    setInputValue('');
     if (user) {
-      // save to Firestore
       await addDoc(collection(db, 'tasks'), {
         text,
         uid: user.uid,
         timestamp: serverTimestamp()
       });
     } else {
-      // just in-memory (will vanish on login or reload)
       setTasks(prev => [...prev, { id: Date.now(), text }]);
     }
 
+    setInputValue('');
   }
 
+  // delete a task
   async function handleDelete(idx) {
     if (user) {
       await deleteDoc(doc(db, 'tasks', tasks[idx].id));
@@ -85,7 +79,6 @@ function Input({ user }) {
           ADD
         </button>
       </div>
-
       <Todo
         tasklist={tasks.map(t => t.text)}
         delete={handleDelete}

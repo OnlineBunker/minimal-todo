@@ -1,13 +1,14 @@
-import './todo.css';
+// src/assets/todo.jsx
 import React from 'react';
+import './todo.css';
 
-function Todo(props) {
+function Todo({ tasklist, delete: onDelete }) {
   return (
-    <div id='todo-div'>
-      {props.tasklist.map((task, index) => (
-        <div key={index} className='todo-item'>
+    <div id="todo-div">
+      {tasklist.map((task, idx) => (
+        <div key={idx} className="todo-item">
           <p>{task}</p>
-          <button className='delete-button' onClick={() => props.delete(index)}>
+          <button className="delete-button" onClick={() => onDelete(idx)}>
             Delete
           </button>
         </div>
@@ -15,4 +16,5 @@ function Todo(props) {
     </div>
   );
 }
+
 export default Todo;

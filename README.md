@@ -10,6 +10,11 @@ A **clean**, **minimal**, and **powerful** TODO app — no distractions, no nons
 * 🤀 Tasks clear on logout (because privacy matters).
 * ✨ Fast, lightweight, and responsive — works great on both mobile and desktop.
 
+### 🖼️ Live Site
+
+🔗 [minimal-todo-sooty.vercel.app](https://minimal-todo-sooty.vercel.app/)
+
+
 ## 🧹 Tech Stack
 
 * React + Vite

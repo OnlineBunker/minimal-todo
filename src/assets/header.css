@@ -1,0 +1,31 @@
+#header-div {
+    margin: 0;
+    padding: 20px 0;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    background-color: #1e1e2f;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #93DEFF;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(147, 222, 255, 0.3);
+    letter-spacing: 1px;
+}
+.auth-button{
+    padding: 13px;
+    margin-left: 16px; /* 👈 spacing between input and button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #93DEFF;
+    color: #1e1e2f;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    box-sizing: border-box;
+}

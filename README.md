@@ -15,7 +15,6 @@ A **clean**, **minimal**, and **powerful** TODO app — no distractions, no nons
 * React + Vite
 * Firebase Auth (Google)
 * Firestore (for saving tasks)
-* Tailwind CSS (for the clean minimal UI)
 
 ## 📸 Preview
 

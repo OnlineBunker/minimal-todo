@@ -1,12 +1,54 @@
-# React + Vite
+# 🧠 Minimal TODO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **clean**, **minimal**, and **powerful** TODO app — no distractions, no nonsense, just tasks.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* ✅ Add, delete, and track your tasks with zero fluff.
+* 🔐 Google login for personalized task saving (or skip it and use it offline).
+* ☁️ Syncs tasks to Firestore when logged in.
+* 🤀 Tasks clear on logout (because privacy matters).
+* ✨ Fast, lightweight, and responsive — works great on both mobile and desktop.
 
-## Expanding the ESLint configuration
+## 🧹 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React + Vite
+* Firebase Auth (Google)
+* Firestore (for saving tasks)
+* Tailwind CSS (for the clean minimal UI)
+
+## 📸 Preview
+
+![screenshot](preview.png) <!-- Add a screenshot in your repo and change the filename if needed -->
+
+## 🛠️ Run Locally
+
+Clone the project and install dependencies:
+
+```bash
+git clone https://github.com/OnlineBunker/minimal-todo.git
+cd minimal-todo
+npm install
+npm run dev
+```
+
+> Make sure your Firebase config is set correctly in `/src/firebase.js`.
+
+## 🤝 Contributing
+
+Not really open to PRs right now unless you're fixing a bug. This app thrives on staying minimal and focused.
+
+## 📄 License
+
+MIT — do whatever you want, just don’t add a bunch of junk to it.
+
+---
+
+### Why another TODO app?
+
+Because most TODO apps try to be everything.
+This one just tries to get out of your way.
+
+---
+
+Built with ☕ and 🧠 by [@OnlineBunker](https://github.com/OnlineBunker)
